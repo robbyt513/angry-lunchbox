@@ -1,9 +1,9 @@
 
-let swing = ["Ball", "Strike", "Single", "Double", "Triple", "Home Run", "Groundout", "Flyout"]
-const renderEl = document.getElementById("render-el")
-const newRandomHitEl = document.getElementById("newrandomhit-el")
-const inputBtn = document.getElementById("input-btn")
-const ulEl = document.getElementById("ul-el")
+let swing = ["Ball", "Strike", "Single", "Double", "Triple", "Home Run", "Groundout", "Flyout"];
+const renderEl = document.getElementById("render-el");
+const newRandomHitEl = document.getElementById("newrandomhit-el");
+const inputBtn = document.getElementById("input-btn");
+const ulEl = document.getElementById("ul-el");
 
 
 const welcomeEl = document.getElementById("welcome-el")
@@ -11,13 +11,13 @@ const welcomeEl = document.getElementById("welcome-el")
 function greetUser() {
     welcomeEl.textContent = "Welcome back, Jackie!! 👋"    
 }
-//greetUser()
 
 function getOutcome() {
     for (let i = 0; i < swing.length; i++) {
        return swing[Math.floor(Math.random() * swing.length)]
     }
 }
+
 
 function finalOutcome() {
     if (getOutcome() === "Ball") {
@@ -34,19 +34,39 @@ function finalOutcome() {
         console.log("Home Run")
     } else if (getOutcome() === "Groundout") {
         console.log("Groundout")
-    } else {
+    } else if (getOutcome() === "Flyout"){
         console.log("Flyout")
     }
 }
 
-addPlayer (firstName, lastName, age) {
+function opponentTurn() {
+    let runsScored = [0, 1, 2];
+    for (let i = 0; i < runsScored.length; i++) {
+        return runsScored[Math.floor(Math.random() * runsScored.length)]
+     }
+}
+
+function opponentOutcome() {
+    if (opponentTurn() === 0) {
+        console.log("No runs scored")
+    } else if (opponentTurn() === 1) {
+        console.log("One runs scored")
+    } else if (opponentTurn() === 2) {
+        console.log("Two runs scored")
+}
+}
+
+const addPlayer = (firstName, lastName, age) => {
     let player = {
       firstName: firstName,
       lastName: lastName,
       age: age
     };
     this.players.push(player)
-  }
+};
+
+
+
 
   class Player {
       constructor(name) {
@@ -78,5 +98,3 @@ addPlayer (firstName, lastName, age) {
         this.isAtBat = !this.isAtBat
       }
   }
-
-
