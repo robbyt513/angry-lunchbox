@@ -12,6 +12,11 @@ function greetUser() {
     welcomeEl.textContent = "Welcome back, Jackie!! 👋"    
 }
 
+// FIXME: Similar to opponentOutcome(), I don't think there's a
+// need to iterate through a loop. The return statement will
+// return `swing[Math.floor(Math.random() * swing.length)]`
+// when i == 0, thus exiting the function scope.
+// Consider refactoring without a for loop.
 function getOutcome() {
     for (let i = 0; i < swing.length; i++) {
        return swing[Math.floor(Math.random() * swing.length)]
@@ -39,6 +44,8 @@ function finalOutcome() {
     }
 }
 
+// FIXME: This will enter the loop, and return after the first pass.
+// Can you rewrite this without a for loop and without using the runsScored array?
 function opponentTurn() {
     let runsScored = [0, 1, 2];
     for (let i = 0; i < runsScored.length; i++) {
@@ -46,6 +53,11 @@ function opponentTurn() {
      }
 }
 
+// FIXME: This won't be noticeable in this project, but imagine opponentTurn is a
+// complex, time consuming function. Maybe it's an API call that returns a lot of data,
+// maybe it's search functionality that needs to find a value in an array of length
+// 1 million. Can you think of a way to refactor this function to only call opponentOutcome()
+// once without changing its functionality?
 function opponentOutcome() {
     if (opponentTurn() === 0) {
         console.log("No runs scored")
@@ -53,7 +65,7 @@ function opponentOutcome() {
         console.log("One runs scored")
     } else if (opponentTurn() === 2) {
         console.log("Two runs scored")
-}
+    }
 }
 
 const addPlayer = (firstName, lastName, age) => {
