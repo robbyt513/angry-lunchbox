@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jackie</title>
 </head>
 <body>
+  <div>
     <p id="welcome-el"></p>
+  </div>
     <h1 id="render-el">Hit: </h1>
     <ul id="ul-el">
         </ul>
-    <button id="click-me" type="button" onclick="finalOutcome();">Swing</button>
-    <!--<button id="click-me" type="button" onclick="randomHit();">Hit</button> -->
+  <div id="game">
+    <button id="click-me" type="button" onclick="finalOutcome();">Home Team</button>
+    <button id="click-me" type="button" onclick="opponentOutcome();">Away Team</button>
+  </div>
 
 
 
@@ -50,5 +54,7 @@
     </div>
    
     <script src="index.js"></script>
+
+    
 </body>
 </html>
