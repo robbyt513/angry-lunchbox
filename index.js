@@ -1,5 +1,4 @@
 
-let swing = ["Ball", "Strike", "Single", "Double", "Triple", "Home Run", "Groundout", "Flyout"];
 const renderEl = document.getElementById("render-el");
 const newRandomHitEl = document.getElementById("newrandomhit-el");
 const inputBtn = document.getElementById("input-btn");
@@ -12,48 +11,63 @@ function greetUser() {
     welcomeEl.textContent = "Welcome back, Jackie!! 👋"    
 }
 
-function getOutcome() {
-    for (let i = 0; i < swing.length; i++) {
+const getOutcome = () => {
+    let swing = ["Ball", "Strike", "Single", "Double", "Triple", "Home Run", "Groundout", "Flyout"];
        return swing[Math.floor(Math.random() * swing.length)]
-    }
 }
-
 
 function finalOutcome() {
-    if (getOutcome() === "Ball") {
-        console.log("Ball")
-    } else if (getOutcome() === "Strike") {
-        console.log("Strike")
-    } else if (getOutcome() === "Single") {
-        console.log("Single")
-    } else if (getOutcome() === "Double") {
-        console.log("Double")
-    } else if (getOutcome() === "Triple") {
-        console.log("Triple")
-    } else if (getOutcome() === "Home Run") {
-        console.log("Home Run")
-    } else if (getOutcome() === "Groundout") {
-        console.log("Groundout")
-    } else if (getOutcome() === "Flyout"){
-        console.log("Flyout")
+    let outcome = getOutcome();
+        switch (outcome) {
+            case "Ball":
+                console.log("Ball");
+                break;
+            case "Strike":
+                console.log("Strike");
+                break;
+            case "Single":
+                console.log("Single");
+            break;
+            case "Double":
+                console.log("Double");
+                break;
+            case "Triple":
+                console.log("Triple");
+                break;
+            case "Home Run":
+                console.log("Home Run");
+                break;
+            case "Groundout":
+                console.log("Groundout");
+                break;
+            case "Flyout":
+                console.log("Flyout");
+                break;
+            default:
+                console.log("Sit Down");
+        }
     }
-}
 
-function opponentTurn() {
-    let runsScored = [0, 1, 2];
-    for (let i = 0; i < runsScored.length; i++) {
-        return runsScored[Math.floor(Math.random() * runsScored.length)]
+const opponentTurn = () => {
+        return (Math.floor(Math.random() * 3))
      }
-}
+
 
 function opponentOutcome() {
-    if (opponentTurn() === 0) {
-        console.log("No runs scored")
-    } else if (opponentTurn() === 1) {
-        console.log("One runs scored")
-    } else if (opponentTurn() === 2) {
-        console.log("Two runs scored")
-}
+    let outcome = opponentTurn();
+        switch (outcome) {
+        case 0:
+            console.log("No runs scored");
+            break;
+        case 1:
+            console.log("One run scored");
+            break;
+        case 2:
+            console.log("Two runs scored");
+            break;
+        default:
+            console.log("Retire Scrub");
+    }
 }
 
 const addPlayer = (firstName, lastName, age) => {
